@@ -25,7 +25,7 @@ public:
 	bool IsQuietNan() const;
 private:
 	static const int32_t kSignficandSize = 23;
-	static const int32_t kExponentBias = 0xFF;
+	static const int32_t kExponentBias = 0x7F;
 	static const int32_t kDenormalExponent = 1 - kExponentBias;
 	static const uint32_t kSignMask = 0x80000000;
 	static const uint32_t kExponentMask = 0x7F800000;
