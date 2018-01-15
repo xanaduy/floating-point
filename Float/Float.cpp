@@ -50,3 +50,8 @@ bool Float::IsNormal() const
 	return true;
 }
 
+void Float::Add(uint32_t x)
+{
+
+}
+

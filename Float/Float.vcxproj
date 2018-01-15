@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Tools\TestTools.cpp" />
+    <ClCompile Include="..\Tools\Tools.cpp" />
     <ClCompile Include="Float.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestFloat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Tools\TestTools.h" />
+    <ClInclude Include="..\Tools\Tools.h" />
     <ClInclude Include="Float.h" />
     <ClInclude Include="TestFloat.h" />
   </ItemGroup>

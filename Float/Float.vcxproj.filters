@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{57c29b1f-44d6-48b9-bca1-5b22fbe03cce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,8 +24,14 @@
     <ClCompile Include="Float.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestFloat.cpp">
+    <ClCompile Include="..\Tools\TestTools.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestFloat.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\Tools.cpp">
+      <Filter>Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +40,12 @@
     </ClInclude>
     <ClInclude Include="TestFloat.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Tools.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\TestTools.h">
+      <Filter>Tools</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

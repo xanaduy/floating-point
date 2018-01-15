@@ -12,6 +12,9 @@ public:
 	Float(const std::string& s);
 	Float(const char* s);
 
+	Float& operator +(const Float& rhs);
+	Float& operator -(const Float& rhs);
+
 	std::string ToString() const;
 	bool Valid() const;
 
@@ -31,12 +34,23 @@ private:
 	static const uint32_t kExponentMask = 0x7F800000;
 	static const uint32_t kSignificandMask = 0x007FFFFF;
 
+	void Add(uint32_t x);
+	void Sub(uint32_t x);
+	void Mul(uint32_t x);
+	void Div(uint32_t x);
+
 	union Data
 	{
 		float f;
 		uint32_t u;
 	};
 
+	enum RoundMode
+	{
+		NEARSET,
+	};
+
+	RoundMode rm = RoundMode::NEARSET;
 	Data d;
 };
 
