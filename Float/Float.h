@@ -7,6 +7,12 @@
 class Float
 {
 public:
+	enum RoundMode
+	{
+		NEARSET,
+	};
+
+public:
 	Float() {}
 	Float(float f);
 	Float(const std::string& s);
@@ -34,20 +40,21 @@ private:
 	static const uint32_t kExponentMask = 0x7F800000;
 	static const uint32_t kSignificandMask = 0x007FFFFF;
 
+	// detect underflow, upperflow, nan
+	// warning, throw exception ?
 	void Add(uint32_t x);
 	void Sub(uint32_t x);
 	void Mul(uint32_t x);
 	void Div(uint32_t x);
 
+	void Round(uint32_t x);
+
+	void SetRoundMode(RoundMode mode);
+
 	union Data
 	{
 		float f;
 		uint32_t u;
-	};
-
-	enum RoundMode
-	{
-		NEARSET,
 	};
 
 	RoundMode rm = RoundMode::NEARSET;

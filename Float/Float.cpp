@@ -55,3 +55,23 @@ void Float::Add(uint32_t x)
 
 }
 
+void Float::Sub(uint32_t x)
+{
+
+}
+
+void Float::Mul(uint32_t x)
+{
+
+}
+
+void Float::Div(uint32_t x)
+{
+
+}
+
+void Float::SetRoundMode(RoundMode mode)
+{
+
+}
+
