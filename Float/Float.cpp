@@ -15,9 +15,26 @@ Float::Float(const char *s)
 	d.f = std::stof(std::string(s));
 }
 
+Float& Float::operator +(const Float& rhs)
+{
+	Add(rhs.UInt32Value());
+
+	return *this;
+}
+
 std::string Float::ToString() const
 {
 	return std::string();
+}
+
+float Float::Value() const
+{
+	return d.f;
+}
+
+uint32_t Float::UInt32Value() const
+{
+	return d.u;
 }
 
 bool Float::Sign() const
@@ -33,6 +50,11 @@ int32_t Float::Exponent() const
 uint32_t Float::Significand() const
 {
 	return d.u & kSignificandMask;
+}
+
+void Float::Print() const
+{
+
 }
 
 bool Float::IsNan() const
@@ -52,7 +74,7 @@ bool Float::IsNormal() const
 
 void Float::Add(uint32_t x)
 {
-
+	
 }
 
 void Float::Sub(uint32_t x)

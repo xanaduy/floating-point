@@ -4,12 +4,23 @@
 #include <string>
 #include <cstdint>  // uint32_t
 
+/*
+	floating-point add£ºhttp://sandbox.mc.edu/~bennet/cs110/textbook/module4_3.html
+
+*/
+
 class Float
 {
 public:
 	enum RoundMode
 	{
 		NEARSET,
+	};
+
+	union Data
+	{
+		float f;
+		uint32_t u;
 	};
 
 public:
@@ -24,9 +35,14 @@ public:
 	std::string ToString() const;
 	bool Valid() const;
 
+	float Value() const;
+	uint32_t UInt32Value() const;
 	bool Sign() const;
 	int32_t Exponent() const;
 	uint32_t Significand() const;
+
+	// precise print the internal value 
+	void Print() const;
 
 	bool IsNan() const;
 	bool IsInf() const;
@@ -50,12 +66,8 @@ private:
 	void Round(uint32_t x);
 
 	void SetRoundMode(RoundMode mode);
-
-	union Data
-	{
-		float f;
-		uint32_t u;
-	};
+	RoundMode GetRoundMode() const;
+	RoundMode DefaultRoundMode() const;
 
 	RoundMode rm = RoundMode::NEARSET;
 	Data d;
