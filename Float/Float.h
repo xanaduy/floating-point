@@ -21,6 +21,12 @@ public:
 	{
 		float f;
 		uint32_t u;
+		struct Bits
+		{
+			uint32_t m : 23;
+			uint32_t e : 8;
+			uint32_t s : 1;
+		}b;
 	};
 
 public:
@@ -40,6 +46,7 @@ public:
 	bool Sign() const;
 	int32_t Exponent() const;
 	uint32_t Significand() const;
+	uint32_t Mantissa() const;
 
 	// precise print the internal value 
 	void Print() const;

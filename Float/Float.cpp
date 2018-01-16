@@ -1,4 +1,5 @@
 #include "Float.h"
+#include <cmath>
 
 Float::Float(float f)
 {
@@ -17,8 +18,27 @@ Float::Float(const char *s)
 
 Float& Float::operator +(const Float& rhs)
 {
-	Add(rhs.UInt32Value());
+	int32_t re = rhs.Exponent();
 
+	if (this->Exponent() == re)
+	{
+		uint32_t rm = rhs.Mantissa();
+		uint32_t tm = this->Mantissa();
+
+		uint64_t m = rm + tm;
+
+		uint32_t h = 1 << kSignficandSize;
+		uint32_t g = m % h;
+		uint32_t c = m / h;
+
+		d.b.m = g;
+		d.b.e += c;
+	}
+	else if (this->Exponent() > re)
+	{
+		
+	}
+	
 	return *this;
 }
 
@@ -52,6 +72,11 @@ uint32_t Float::Significand() const
 	return d.u & kSignificandMask;
 }
 
+uint32_t Float::Mantissa() const
+{
+	return d.u & kSignificandMask;
+}
+
 void Float::Print() const
 {
 
@@ -74,7 +99,6 @@ bool Float::IsNormal() const
 
 void Float::Add(uint32_t x)
 {
-	
 }
 
 void Float::Sub(uint32_t x)

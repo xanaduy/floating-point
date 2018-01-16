@@ -19,6 +19,12 @@ namespace TestFloat
 		Float a = 1.5;
 		Float b = 1.5;
 		Float c = a + b;
+		std::cout << c.Value() << "\n";
+
+		float h = 16.5;
+		float k = 1.5;
+		float g = h + k;
+		std::cout << g << "\n";
 
 		std::cout << "End TestFloat" << std::endl;
 
