@@ -120,21 +120,21 @@ int main() {
 
 	int num_passed = 0, num_failed = 0;
 
-	for (int num_tests = 0; num_tests < 1000; num_tests++) {
-		uint32_t number1 = rand() % max_float; // generate a pseudo-random pattern
-		uint32_t number2 = rand() % max_float; // generate a pseudo-random pattern
-		float sum = *(float*)&number1 + *(float*)&number2;
+	//for (int num_tests = 0; num_tests < 1000; num_tests++) {
+	//	uint32_t number1 = rand() % max_float; // generate a pseudo-random pattern
+	//	uint32_t number2 = rand() % max_float; // generate a pseudo-random pattern
+	//	float sum = *(float*)&number1 + *(float*)&number2;
 
-		// compare resulting binary patterns
-		if (*(uint32_t*)&sum & add(number1, number2)) {
-			num_passed++;
-		}
-		else {
-			std::cout << "Expected: " << *(uint32_t*)&sum << " pattern but recieved " << add(number1, number2) << std::endl;
-			num_failed++;
-		}
-	}
-	std::cout << "RNG test -- compared to float: Total " << num_passed << " " << "PASSED " << num_failed << " FAILED." << std::endl;
+	//	// compare resulting binary patterns
+	//	if (*(uint32_t*)&sum & add(number1, number2)) {
+	//		num_passed++;
+	//	}
+	//	else {
+	//		std::cout << "Expected: " << *(uint32_t*)&sum << " pattern but recieved " << add(number1, number2) << std::endl;
+	//		num_failed++;
+	//	}
+	//}
+	//std::cout << "RNG test -- compared to float: Total " << num_passed << " " << "PASSED " << num_failed << " FAILED." << std::endl;
 
 	num_passed = 0;
 	num_failed = 0;
@@ -150,6 +150,13 @@ int main() {
 		iss >> std::hex >> b;
 		iss >> std::hex >> c;
 		iss.clear();
+
+		std::cout << std::hex << a << "  "
+			<< std::hex << b << "  "
+			<< std::hex << c << "\n";
+		std::cout << *((float *)&a) << "  "
+			<< *((float *)&b) << "  "
+			<< *((float *)&c) << "\n";
 		if (c & add(a, b)) {
 			num_passed++;
 		}
