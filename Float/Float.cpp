@@ -57,6 +57,39 @@ uint32_t Float::UInt32Value() const
 	return d.u;
 }
 
+//  Link: http://yoda.arachsys.com/csharp/DoubleConverter.cs
+const std::string Float::ToExactString() const
+{
+	if (IsInf())
+		return Sign() ? "+Inf" : "-Inf";
+	
+	if (IsNan())
+		return "Nan";
+
+	uint32_t bits = UInt32Value();
+
+	// subnormal numbers
+	bool negative = (d.b.s == 1);
+	int exponent = (int)(bits >> 23 & 0xFF);
+	int mantissa = bits & 0x7FFFFF;
+
+	if (exponent == 0) exponent++;   // subnormal
+	else mantissa |= (1 << 23);      // normal
+	
+	exponent -= (127 + 23);
+
+	if (mantissa == 0)
+		return "0";  //  ? "+0", "-0"
+
+	while ((mantissa & 1) == 0)
+	{
+		mantissa >>= 1;
+		exponent++;
+	}
+
+	return std::string();
+}
+
 bool Float::Sign() const
 {
 	return (d.u & kSignMask) != 0;

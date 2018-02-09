@@ -38,7 +38,11 @@ public:
 	Float& operator +(const Float& rhs);
 	Float& operator -(const Float& rhs);
 
+	float NextPositiveFloat() const;
+
 	std::string ToString() const;
+	const std::string ToExactString() const;
+
 	bool Valid() const;
 
 	float Value() const;
@@ -55,6 +59,8 @@ public:
 	bool IsInf() const;
 	bool IsNormal() const;
 	bool IsQuietNan() const;
+
+	bool IsSubNormal() const;
 private:
 	static const int32_t kSignficandSize = 23;
 	static const int32_t kExponentBias = 0x7F;
