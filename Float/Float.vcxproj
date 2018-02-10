@@ -141,14 +141,19 @@
   <ItemGroup>
     <ClCompile Include="..\Tools\TestTools.cpp" />
     <ClCompile Include="..\Tools\Tools.cpp" />
+    <ClCompile Include="ArbitraryDecimal.cpp" />
     <ClCompile Include="Float.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestArbitraryDecimal.cpp" />
     <ClCompile Include="TestFloat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Tools\TestTools.h" />
     <ClInclude Include="..\Tools\Tools.h" />
+    <ClInclude Include="ArbitraryDecimal.h" />
     <ClInclude Include="Float.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="TestArbitraryDecimal.h" />
     <ClInclude Include="TestFloat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

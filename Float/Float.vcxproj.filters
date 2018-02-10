@@ -33,6 +33,12 @@
     <ClCompile Include="..\Tools\Tools.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
+    <ClCompile Include="ArbitraryDecimal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestArbitraryDecimal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Float.h">
@@ -46,6 +52,15 @@
     </ClInclude>
     <ClInclude Include="..\Tools\TestTools.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ArbitraryDecimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestArbitraryDecimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
